@@ -4,7 +4,21 @@ class Filter extends React.Component{
     render(){
         return (
             <div>
-                Filter
+                <label>
+                Filter :
+                </label>
+                <div className="filtersBar">
+                <p>
+                    All
+                </p>
+                <p>
+                    Completed
+                </p>
+                <p>
+                    InCompleted
+                </p>
+                </div>
+
             </div>
         )
     }

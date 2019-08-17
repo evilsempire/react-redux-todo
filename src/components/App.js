@@ -1,3 +1,4 @@
+import './styles/index.css'
 import React from "react";
 
 import AddToDo from "./AddToDo";
