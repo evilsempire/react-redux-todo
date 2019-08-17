@@ -13,3 +13,11 @@
   -webkit-transform: translate(-50%, -15%);
   transform: translate(-50%, -15%);
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.strike {
+  text-decoration: line-through;
+}
