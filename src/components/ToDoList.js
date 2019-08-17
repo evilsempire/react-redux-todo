@@ -11,11 +11,27 @@ class ToDoList extends React.Component{
 
     
     getList = () => {
-        const {todo} = this.props;
+        const {todo,visibilityFilter} = this.props;
+
+        let todoList ;
+        //Now based on the filter we need to make the todolist
+        switch(visibilityFilter){
+            case "ALL": 
+                todoList = todo;
+                break;
+
+                case true:
+                    todoList = todo.filter(item => item.completed === true);
+                    break;
+
+                case false:
+                        todoList = todo.filter(item => item.completed === false);
+                    break;
+        }
 
         return <ul>
         {
-            todo.length ? todo.map((listItem, index) => 
+            todoList.length ? todoList.map((listItem, index) => 
                 <li 
                     className={`cursor-pointer  ${listItem.completed ? 'strike': null}`}   
                     key={listItem.id}
@@ -34,7 +50,9 @@ class ToDoList extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-    return state;
+    const {todo, visibilityFilter} = state
+
+    return {todo, visibilityFilter};
 }
 
 export default connect(mapStateToProps,{toggleToDo})(ToDoList);

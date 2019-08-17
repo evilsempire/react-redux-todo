@@ -1,4 +1,7 @@
 import React from "react";
+import {connect} from "react-redux";
+
+import {setVisibilityFilter} from "../actions";
 
 class Filter extends React.Component{
 
@@ -9,24 +12,22 @@ class Filter extends React.Component{
         }
     }
 
-    toggleFilter = (filterName) => {
-        console.log("filterName", filterName)
-    }
 
     render(){
+        const { visibilityFilter} = this.props;
         return (
             <div>
                 <label>
                 Filter :
                 </label>
                 <div className="filtersBar">
-                <p onClick={() => this.toggleFilter("ALL")}>
+                <p className={visibilityFilter === "ALL" ? 'active': null} onClick={() => this.props.setVisibilityFilter("ALL")} >
                     All
                 </p>
-                <p onClick={() => this.toggleFilter("COMPLETED")}>
+                <p className={visibilityFilter === true ? 'active': null} onClick={() => this.props.setVisibilityFilter(true)}>
                     Completed
                 </p>
-                <p onClick={() => this.toggleFilter("INCOMPLETED")}>
+                <p className={visibilityFilter === false ? 'active': null} onClick={() => this.props.setVisibilityFilter(false)}>
                     InCompleted
                 </p>
                 </div>
@@ -36,4 +37,9 @@ class Filter extends React.Component{
     }
 }
 
-export default Filter;
+
+const mapStateToProps = ({visibilityFilter}) => {
+    return {visibilityFilter};
+}
+
+export default connect(mapStateToProps, {setVisibilityFilter})(Filter);
