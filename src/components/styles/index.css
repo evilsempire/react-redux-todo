@@ -1,14 +1,15 @@
 .filtersBar p {
   float: left;
   margin: 10px;
+  cursor: pointer;
 }
 
 #root {
   padding: 15px;
   position: absolute;
-  top: 50%;
+  top: 15%;
   left: 50%;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -ms-transform: translateX(-50%) translateY(-15%);
+  -webkit-transform: translate(-50%, -15%);
+  transform: translate(-50%, -15%);
 }

@@ -1,6 +1,18 @@
 import React from "react";
 
 class Filter extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            visibilityFilter: "ALL"
+        }
+    }
+
+    toggleFilter = (filterName) => {
+        console.log("filterName", filterName)
+    }
+
     render(){
         return (
             <div>
@@ -8,13 +20,13 @@ class Filter extends React.Component{
                 Filter :
                 </label>
                 <div className="filtersBar">
-                <p>
+                <p onClick={() => this.toggleFilter("ALL")}>
                     All
                 </p>
-                <p>
+                <p onClick={() => this.toggleFilter("COMPLETED")}>
                     Completed
                 </p>
-                <p>
+                <p onClick={() => this.toggleFilter("INCOMPLETED")}>
                     InCompleted
                 </p>
                 </div>
