@@ -1,17 +1,32 @@
 import React from "react";
+import {connect} from "react-redux";
 
-const demoList = ["test1", "test2", "test3"];
+// import {getToDoList} from "../actions"
 
 class ToDoList extends React.Component{
+
+    constructor(props){
+        super(props)
+    }
+
+    
+
+
     render(){
+const {todo} = this.props;
         return (
            <ul>
                {
-                   demoList.map((listItem, index) => <li key={index}>{listItem}</li>)
+                   todo.length ? todo.map((listItem, index) => <li key={index}>{listItem.taskName}</li>): "No Tasks present"
                }
            </ul>
+        
         )
     }
 }
 
-export default ToDoList;
+const mapStateToProps = (state) => {
+    return state;
+}
+
+export default connect(mapStateToProps)(ToDoList);

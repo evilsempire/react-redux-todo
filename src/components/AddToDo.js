@@ -1,18 +1,38 @@
 import React from "react";
+import {connect } from "react-redux";
+
+//import action
+import {addToDo} from "../actions"
 
 class AddToDo extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            value:""
+            value:"",
+            error: ""
         }
     }
 
 
     submitForm = (e) => {
         e.preventDefault();
-        console.log("this.state", this.state)
+        const {value, error} = this.state;
+
+        if(value !== ""){
+             //run action function
+        this.props.addToDo(value);
+
+        //now make the value empty
+        this.setState({
+            value: "",
+            error: ""
+        })
+        }else{
+            this.setState({
+                error: "Please type something!"
+            })
+        }
     }
 
 
@@ -26,9 +46,12 @@ class AddToDo extends React.Component{
                     value: e.target.value
                 })}/>
                 <input type="submit" value="submit"/>
+                {this.state.error !== "" ? <div>{this.state.error}</div>: null}
             </form>
         )
     }
 }
 
-export default AddToDo;
+
+
+export default connect(null,{addToDo})(AddToDo);
