@@ -39,13 +39,14 @@ class AddToDo extends React.Component{
     render(){
         return (
             <form onSubmit={(e) => this.submitForm(e)}>
-                <label>
-                    Task:
-                </label>
-                <input type="text" value={this.state.value} onChange= {e => this.setState({
+              
+                
+                <div className="ui fluid action input">
+                <input type="text" placeholder="Add Todo" value={this.state.value} onChange= {e => this.setState({
                     value: e.target.value
                 })}/>
-                <input type="submit" value="submit"/>
+                <button class="ui button" type="submit">Submit</button>
+                </div>
                 {this.state.error !== "" ? <div>{this.state.error}</div>: null}
             </form>
         )

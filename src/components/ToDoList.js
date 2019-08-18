@@ -33,10 +33,11 @@ class ToDoList extends React.Component{
         {
             todoList.length ? todoList.map((listItem, index) => 
                 <li 
-                    className={`cursor-pointer  ${listItem.completed ? 'strike': null}`}   
+                    className={`cursor-pointer ui floating message  ${listItem.completed ? 'strike': null}`}   
                     key={listItem.id}
                     onClick = {(e) => this.props.toggleToDo(listItem.id)}
                     >{listItem.taskName}</li>
+                   
                 ): 
                 
                 "No Tasks present"

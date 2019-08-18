@@ -1,3 +1,6 @@
+body {
+  background: #f9f9fb !important;
+}
 .filtersBar p {
   float: left;
   margin: 10px;
@@ -5,13 +8,16 @@
 }
 
 #root {
+  /* font-size: 20px; */
   padding: 15px;
   position: absolute;
+  background-color: white;
   top: 15%;
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-15%);
   -webkit-transform: translate(-50%, -15%);
   transform: translate(-50%, -15%);
+  box-shadow: 1px 1px 5px 1px #f0f0f0;
 }
 
 .cursor-pointer {
@@ -24,4 +30,8 @@
 
 .active {
   text-decoration: underline;
+}
+
+ul {
+  list-style: none;
 }
